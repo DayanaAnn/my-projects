@@ -8,74 +8,73 @@ use Assignment;
  
 /*Bajaj1 Table*/
 update `bajaj auto` set `Date` = str_to_date(`Date`,'%d-%M-%Y');
- create table bajaj1
-  as (with cte_bajaj as( select 
-							Date,
-							row_number() over (order by Date) RowNumber,
-							`Close Price`,
-							avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
-							avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
+create table bajaj1 as (
+	with cte_bajaj as( select
+			  	Date,
+				row_number() over (order by Date) RowNumber,
+				`Close Price`,
+				avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
+				avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
 from `bajaj auto`)select Date,`Close Price`,`20 Day MA`,`50 Day MA` from cte_bajaj where RowNumber >=50);
 select * from bajaj1;
 
 
 /*eicher1 Table*/
 update `eicher motors` set `Date` = str_to_date(`Date`,'%d-%M-%Y');
- create table eicher1
-  as (with cte_eicherMotors as( select 
-							Date,
-							row_number() over (order by Date) RowNumber,
-							`Close Price`,
-							avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
-							avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
+create table eicher1 as (
+	with cte_eicherMotors as( select
+				 	Date,
+					row_number() over (order by Date) RowNumber,
+					`Close Price`,
+					avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
+					avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
 from `eicher motors`)select Date,`Close Price`,`20 Day MA`,`50 Day MA` from cte_eicherMotors where RowNumber >=50);
 select * from eicher1;
 
 
 /*hero1 Table*/
 update `hero motocorp` set `Date` = str_to_date(`Date`,'%d-%M-%Y');
- create table hero1
-  as (with cte_heroMotocorp as( select 
-							Date,
-							row_number() over (order by Date) RowNumber,
-							`Close Price`,
-							avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
-							avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
+create table hero1 as (
+	with cte_heroMotocorp as( select
+				 	Date,
+					row_number() over (order by Date) RowNumber,
+					`Close Price`,
+					avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
+					avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
 from `hero motocorp`)select Date,`Close Price`,`20 Day MA`,`50 Day MA` from cte_heroMotocorp where RowNumber >=50);
 select * from hero1;
 
 
 /*infosys1 Table*/
 update infosys set `Date` = str_to_date(`Date`,'%d-%M-%Y');
- create table infosys1
-  as (with cte_infosys as( select 
-							Date,
-							row_number() over (order by Date) RowNumber,
-							`Close Price`,
-							avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
-							avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
+create table infosys1 as (
+	with cte_infosys as( select 
+			    	Date,
+			    	row_number() over (order by Date) RowNumber,
+				`Close Price`,
+				avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
+				avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
 from infosys)select Date,`Close Price`,`20 Day MA`,`50 Day MA` from cte_infosys where RowNumber >=50);
 select * from infosys1;
 
 
 /*tcs1 Table*/
 update tcs set `Date` = str_to_date(`Date`,'%d-%M-%Y');
- create table tcs1
-  as (with cte_tcs as( select 
-							Date,
-							row_number() over (order by Date) RowNumber,
-							`Close Price`,
-							avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
-							avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
+create table tcs1 as (
+	with cte_tcs as( select
+			Date,
+			row_number() over (order by Date) RowNumber,
+			`Close Price`,
+			avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
+			avg(`Close Price`) over (order by Date rows 49 preceding) as `50 Day MA`
 from tcs)select Date,`Close Price`,`20 Day MA`,`50 Day MA` from cte_tcs where RowNumber >=50);
 select * from tcs1;
 
 
 /*tvs1 Table*/
 update `tvs motors` set `Date` = str_to_date(`Date`,'%d-%M-%Y');
- create table tvs1
-  as (with cte_tvsmotors as( select 
-							Date,
+ create table tvs1 as (with cte_tvsmotors as( select 
+					     		Date,
 							row_number() over (order by Date) RowNumber,
 							`Close Price`,
 							avg(`Close Price`) over (order by Date rows 19 preceding) as `20 Day MA`,
